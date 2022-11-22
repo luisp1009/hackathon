@@ -43,7 +43,10 @@ router.get("/searchCountry", (req, res, next) => {
       `https://restcountries.com/v3.1/name/${req.query.countryName}?fullText=true`
     )
     .then((responseFromAPI) => {
-      res.send(responseFromAPI.data);
+        let countryData = responseFromAPI.data[0]
+console.log("RESPONSE:", countryData)
+
+      res.render("searchedRoom.hbs", countryData)
     });
 });
 
