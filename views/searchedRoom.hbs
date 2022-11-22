@@ -1,11 +1,16 @@
-<span> Country</span>
-<h1>{{name.common}}</h1>
-<label> Official Name</label>
-<h2>{{name.official}}</h2>
-<label>Timezone</label>
-<h3>{{timezones.[0]}}</h3>
-<label> Region</label>
-<h4>{{region}}</h4>
-<label>Capital</label>
-<h4>{{capital.[0]}}</h4>
-<img src = "{{flags.png}}">
+<div class="countriesContainer">
+    <p class="countryTitle"> Country</p>
+    <img class="flags" src = "{{flags.png}}">
+    
+<label class="officialName"> Official Name</label>
+<h1 class="countryInfo">{{name.common}}</h1>
+<label class="labels">Timezone</label>
+<h2 class="countryInfo">{{name.official}}</h2>
+<label class="labels"> Region</label>
+<h3 class="countryInfo">{{timezones.[0]}}</h3>
+<label class="labels">Capital</label>
+<h4 class="countryInfo">{{region}}</h4>
+
+<h4 class="countryInfo">{{capital.[0]}}</h4>
+
+</div>
