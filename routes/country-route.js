@@ -20,7 +20,6 @@ res.send('error')
 
 router.post("/searchCountry", (req, res, next) => {
 
-
 })
 
 module.exports = router;
