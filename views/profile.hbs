@@ -1,4 +1,8 @@
-<h1>Profile Page</h1>
-{{#if email}}
-<p>{{this.email}}</p>
-{{/if}}
+<style>
+    h1,p {
+        color:white;
+    }
+</style>
+<h1>Profile Page</h1> 
+<p>Email:{{user.email}}</p>
+<p> Favorite Country{{country.name.common}}</p>
