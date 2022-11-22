@@ -1,14 +1,33 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
     <title>Document</title>
-</head>
-<body>
-{{{body}}}
+  </head>
+  <body>
 
-</body>
+    {{#unless isLoggedIn}}
+      <a href="sign-up">
+        Sign up
+      </a>
+      <a href="log-in">
+        Log in
+      </a>
+    {{/unless}}
+
+    {{#if isLoggedIn}}
+      <a href="/profile">Profile</a>
+    {{/if}}
+
+    {{#if isLoggedIn}}
+      <form action="/logout" method="POST">
+        <button>Logout</button>
+      </form>
+    {{/if}}
+
+    {{{body}}}
+
+  </body>
 </html>
