@@ -47,8 +47,15 @@ router.get("/searchCountry", (req, res, next) => {
 console.log("RESPONSE:", countryData)
 
       res.render("searchedRoom.hbs", countryData)
-    });
+    })
+    .catch(err => {
+console.log(err)
+res.send(err)
+} )
 });
+
+
+
 
 
 
