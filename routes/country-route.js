@@ -3,6 +3,7 @@ const axios = require("axios");
 const User = require("../models/User.model")
 const bcryptjs = require("bcryptjs");
 
+
 const {
   signupPostController,
   loginPostController,
@@ -14,6 +15,7 @@ const {isLoggedin, isAnon,  isPublic, } = require("../middlewares/auth.middlewar
 
 
 router.get("/", isPublic, (req, res, next) => {
+
   res.render("home.hbs");
 });
 

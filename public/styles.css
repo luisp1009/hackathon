@@ -16,23 +16,21 @@ body{
     left: 50%;
     width: 80vw;
     border-radius:20px;
-    max-width: 800px;
+    max-width: 600px;
     
-}
-
-.search{
-    display: grid;
-    grid-template-columns: 9fr 3fr;
-    gap: 20px;
 }
 
 button{
     font-size: 15px;
     background-color: black;
     color: white;
-    padding: 10px 0;
+    padding: 10px 20px;
     border: none;
     border-radius: 20px;
+    position: absolute;
+    transform: translate(170%, -50%);
+    top: 50%;
+    left: 50%;
 }
 
 input{
@@ -40,5 +38,58 @@ input{
     border: none;
     border-bottom: 2px solid black;
     outline: none;
+    width: 300px;
+    position: absolute;
+    transform: translate(-70%, -50%);
+    top: 50%;
+    left: 50%;
+   
 
+}
+
+.title{
+    position: absolute;
+    transform: translate(-80%, -400%);
+    top: 50%;
+    left: 50%;
+    color: white;
+}
+
+
+.countryTitle{
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+.countryInfo{
+    font-size: 40px;
+   
+}
+
+.countriesContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    margin-top: 200px;
+    width: 80vw;
+    align-items: center;
+    padding: 50px 0 ;
+    border-radius: 25px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+img{
+    width: 40%;
+    border: 2px solid black;
+}
+
+.officialName{
+    margin-top: 20px;
+}
+
+.labels{
+    font-size: 20px;
 }
