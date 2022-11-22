@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: blue;
+    background-color: black;
 }
 
 .container{
@@ -33,7 +33,7 @@ button{
     left: 50%;
 }
 
-input{
+.countryInput{
     font-size: 15px;
     border: none;
     border-bottom: 2px solid black;
