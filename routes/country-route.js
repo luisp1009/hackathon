@@ -1,39 +1,19 @@
 const router = require("express").Router();
 const axios = require("axios");
+const User = require("../models/User.model")
+const bcryptjs = require("bcryptjs");
 
-// router.get("/", (req, res, next) => {
-//     let countryName = req.query.countryName
-//     let finalURL = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
+const {
+  signupPostController,
+  loginPostController,
+} = require("../controllers/auth.controllers");
 
-//     axios.get(finalURL)
-// .then(responseFromAPI => {
-//         console.log(responseFromAPI)
-//         console.log(responseFromAPI.data)
-//         res.send(responseFromAPI.data)
-//       res.render("layout.hbs");
-//     })
-//     .catch((err)=>{
-// console.log(err.response.data)
-// res.send('error')
-//     })
+const {isLoggedin, isAnon,  isPublic, } = require("../middlewares/auth.middlewares.js");
 
-// })
 
-// router.get("/home")
 
-// router.get("/characters/:id", (req, res, next) => {
-//   axios
-//     .get(`https://ih-crud-api.herokuapp.com/characters/${req.params.id}`)
-//     .then((responseFromAPI) => {
-//       // console.log("details: ", responseFromAPI.data)
-//       res.render("characters/details-character", {
-//         character: responseFromAPI.data,
-//       });
-//     })
-//     .catch((err) => console.error(err));
-// });
 
-router.get("/", (req, res, next) => {
+router.get("/", isPublic, (req, res, next) => {
   res.render("home.hbs");
 });
 
@@ -51,9 +31,61 @@ console.log("RESPONSE:", countryData)
     .catch(err => {
 console.log(err)
 res.send(err)
-} )
+})
 });
 
+
+
+//SIGN UP
+
+router.get("/sign-up", isAnon, (req, res, next) => {
+res.render("signup.hbs")
+
+
+
+});
+
+router.post("/sign-up", isAnon, signupPostController);
+
+//SIGNUP END
+
+
+
+
+
+
+
+
+//LOG IN
+
+router.get("/log-in", isAnon, (req, res, next) => {
+  res.render("login.hbs");
+});
+
+
+router.post("/log-in", isAnon, loginPostController)
+
+//LOG IN END
+
+
+//PROFILE 
+
+
+router.get("/profile", isLoggedin, (req, res, next) => {
+  console.log(req.session);
+  res.render("profile.hbs", req.session.user);
+});
+
+//PROFILE END
+
+
+// LOG OUT
+router.post("/logout", isLoggedin, (req, res, next) => {
+  req.session.destroy((err) => {
+    if (err) next(err);
+    res.redirect("/")
+  });
+})
 
 
 
